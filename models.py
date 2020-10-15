@@ -1,5 +1,5 @@
 import os
-from sqlalchemy import Column, String, Integer, create_engine
+from sqlalchemy import Column, String, Integer, create_engine, ForeignKey, DateTime, Enum, relationship, backref
 from flask_sqlalchemy import SQLAlchemy
 import json
 
@@ -20,41 +20,74 @@ def setup_db(app, database_path=database_path):
 
 
 '''
-Moives
-Have title and release date
+Moive
+Have title, release date, and actor
 '''
-class Movies(db.Model):  
-  __tablename__ = 'Movies'
+class Movie(db.Model):  
+  __tablename__ = 'Movie'
 
   id = Column(Integer, primary_key=True)
-  title = Column(String)
-  catchphrase = Column(String)
+  title = Column(String(80), unique=True, nullable=False)
+  release_date = Column(DateTime, nullable=False)
+  actor_id = Column(Integer, ForeignKey('Actor.id'))
 
-  def __init__(self, title, catchphrase=""):
+  def __init__(self, title, release_date, actor_id):
     self.title = title
-    self.catchphrase = catchphrase
+    self.release_date = release_date
+    self.actor_id = actor_id
+    
+  def insert(self):
+    db.session.add(self)
+    db.session.commit()
+  
+  def update(self):
+    db.session.commit()
+
+  def delete(self):
+    db.session.delete(self)
+    db.session.commit()
 
   def format(self):
     return {
       'id': self.id,
       'title': self.title,
-      'catchphrase': self.catchphrase}
+      'release_date': self.release_date
+      }
 
+'''
+Actor
+Have name, age, gender
+'''
 
-class Actors(db.Model):  
-  __tablename__ = 'Actors'
+class Actor(db.Model):  
+  __tablename__ = 'Actor'
 
   id = Column(Integer, primary_key=True)
-  title = Column(String)
-  catchphrase = Column(String)
+  name = Column(String(80))
+  age = Column(Integer)
+  gender = Column(Enum("female", "male", name="sex",))
+  movies = relationship("Movies", backref('actor'), lazy=True)
 
-  def __init__(self, title, catchphrase=""):
-    self.title = title
-    self.catchphrase = catchphrase
+  def __init__(self, name, age, gender):
+    self.name = name
+    self.gender = gender
+    self.age = age
+    
+  def insert(self):
+    db.session.add(self)
+    db.session.commit()
+  
+  def update(self):
+    db.session.commit()
+
+  def delete(self):
+    db.session.delete(self)
+    db.session.commit()
 
   def format(self):
     return {
       'id': self.id,
-      'title': self.title,
-      'catchphrase': self.catchphrase}
+      'name': self.name,
+      'gender': self.gender
+      }
     

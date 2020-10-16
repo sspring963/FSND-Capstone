@@ -1,9 +1,11 @@
 import os
-from sqlalchemy import Column, String, Integer, create_engine, ForeignKey, DateTime, Enum, relationship, backref
+from sqlalchemy import Column, String, Integer, create_engine, ForeignKey, DateTime, Enum
 from flask_sqlalchemy import SQLAlchemy
 import json
 
-database_path = os.environ['DATABASE_URL']
+
+database_name = "trivia"
+database_path = "postgres://{}/{}".format('postgres:435s606S@localhost:5432', database_name)
 
 db = SQLAlchemy()
 
@@ -66,7 +68,7 @@ class Actor(db.Model):
   name = Column(String(80))
   age = Column(Integer)
   gender = Column(Enum("female", "male", name="sex",))
-  movies = relationship("Movies", backref('actor'), lazy=True)
+  movies = db.relationship("Movies", db.backref('actor'), lazy=True)
 
   def __init__(self, name, age, gender):
     self.name = name

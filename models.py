@@ -1,10 +1,11 @@
 import os
 from sqlalchemy import Column, String, Integer, create_engine, ForeignKey, DateTime, Enum
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 import json
 
 
-database_name = "trivia"
+database_name = "movie_agency"
 database_path = "postgres://{}/{}".format('postgres:435s606S@localhost:5432', database_name)
 
 db = SQLAlchemy()
@@ -20,18 +21,17 @@ def setup_db(app, database_path=database_path):
     db.init_app(app)
     db.create_all()
 
-
 '''
 Moive
 Have title, release date, and actor
 '''
 class Movie(db.Model):  
-  __tablename__ = 'Movie'
+  __tablename__ = 'movie'
 
   id = Column(Integer, primary_key=True)
   title = Column(String(80), unique=True, nullable=False)
   release_date = Column(DateTime, nullable=False)
-  actor_id = Column(Integer, ForeignKey('Actor.id'))
+  actor_id = Column(Integer, db.ForeignKey('actor.id'))
 
   def __init__(self, title, release_date, actor_id):
     self.title = title
@@ -53,7 +53,8 @@ class Movie(db.Model):
     return {
       'id': self.id,
       'title': self.title,
-      'release_date': self.release_date
+      'release_date': self.release_date,
+      'actor_id' : self.actor_id
       }
 
 '''
@@ -62,13 +63,13 @@ Have name, age, gender
 '''
 
 class Actor(db.Model):  
-  __tablename__ = 'Actor'
+  __tablename__ = 'actor'
 
   id = Column(Integer, primary_key=True)
   name = Column(String(80))
   age = Column(Integer)
   gender = Column(Enum("female", "male", name="sex",))
-  movies = db.relationship("Movies", db.backref('actor'), lazy=True)
+  movies = db.relationship("Movie", backref=db.backref('actor', lazy=True ))
 
   def __init__(self, name, age, gender):
     self.name = name

@@ -5,7 +5,7 @@ from flask_cors import CORS
 from flask_migrate import Migrate
 
 from models import setup_db, Movie, Actor
-from .auth.auth import AuthError, requires_auth
+from auth.auth import AuthError, requires_auth
 
 def create_app(test_config=None):
   # create and configure the app
@@ -32,7 +32,7 @@ def create_app(test_config=None):
         
         return jsonify({
             'success':True,
-            'drinks': formatted_movies
+            'movies': formatted_movies
             })
     
     @app.route('/actors', methods=['GET'])
@@ -44,7 +44,7 @@ def create_app(test_config=None):
         
         return jsonify({
             'success':True,
-            'drinks':formatted_actors
+            'actors':formatted_actors
             })
     
     @app.route('/movies', methods=['POST'])
@@ -55,7 +55,7 @@ def create_app(test_config=None):
         
         
         if body.get('title') == '' or body.get('release_date') == '' or body.get('actor_id') == '':
-            abort(404)
+            abort(400)
         
         new_title = body.get('title')
         new_release_date = body.get('release_date')
@@ -83,7 +83,7 @@ def create_app(test_config=None):
         
         
         if body.get('name') == '' or body.get('age') == '' or body.get('gender') == '':
-            abort(404)
+            abort(400)
         
         new_name = body.get('name')
         new_age = body.get('age')

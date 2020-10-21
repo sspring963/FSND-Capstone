@@ -38,6 +38,7 @@ def get_token_auth_header():
     if not auth:
         raise AuthError({
             'code': 'authorization_header_missing',
+            'success': False,
             'description': 'Authorization header is expected.'
         }, 401)
 
@@ -45,18 +46,21 @@ def get_token_auth_header():
     if parts[0].lower() != 'bearer':
         raise AuthError({
             'code': 'invalid_header',
+            'success': False,
             'description': 'Authorization header must start with "Bearer".'
         }, 401)
 
     elif len(parts) == 1:
         raise AuthError({
             'code': 'invalid_header',
+            'success': False,
             'description': 'Token not found.'
         }, 401)
 
     elif len(parts) > 2:
         raise AuthError({
             'code': 'invalid_header',
+            'success': False,
             'description': 'Authorization header must be bearer token.'
         }, 401)
 
@@ -81,12 +85,14 @@ def check_permissions(permission, payload):
     if 'permissions' not in payload:
         raise AuthError({
             'code': 'invalid_claims',
+            'success': False,
             'description': 'Permissions not included in JWT.'
         }, 400)
 
     if permission not in payload['permissions']:
         raise AuthError({
             'code': 'unauthorized',
+            'success': False,
             'description': 'Permission not found.'
         }, 401)
     return True
@@ -142,21 +148,25 @@ def verify_decode_jwt(token):
         except jwt.ExpiredSignatureError:
             raise AuthError({
                 'code': 'token_expired',
+                'success': False,
                 'description': 'Token expired.'
             }, 401)
 
         except jwt.JWTClaimsError:
             raise AuthError({
                 'code': 'invalid_claims',
+                'success': False,
                 'description': 'Incorrect claims. Please, check the audience and issuer.'
             }, 401)
         except Exception:
             raise AuthError({
                 'code': 'invalid_header',
+                'success': False,
                 'description': 'Unable to parse authentication token.'
             }, 400)
     raise AuthError({
         'code': 'invalid_header',
+        'success': False,
                 'description': 'Unable to find the appropriate key.'
     }, 400)
 

@@ -1,6 +1,8 @@
 https://fsnd-capstone-sspring963.herokuapp.com/ | https://git.heroku.com/fsnd-capstone-sspring963.git
 os.environ['DATABASE_URL']
 
+"postgres://{}/{}".format('postgres:435s606S@localhost:5432', database_name)
+
 GET https://dev-lyyzp66h.us.auth0.com/authorize?
   audience=movie&
   response_type=token&

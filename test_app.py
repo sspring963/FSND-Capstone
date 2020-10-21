@@ -16,8 +16,9 @@ class MovieTestCase(unittest.TestCase):
         self.database_path = "postgres://{}/{}".format(
             'postgres:435s606S@localhost:5432', self.database_name)
         setup_db(self.app, self.database_path)
-        self.executive_producer = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImVjb21YNFNmVHAtdk95eFZuRlBnbCJ9.eyJpc3MiOiJodHRwczovL2Rldi1seXl6cDY2aC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDQzODY4NzgwMTUwMDA2MjUzNDUiLCJhdWQiOlsibW92aWUiLCJodHRwczovL2Rldi1seXl6cDY2aC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzMjI3NTU2LCJleHAiOjE2MDMzMTM5NTYsImF6cCI6IlcxZWM4UkxMWEcxdlVhV3pNbWJzbHAyNE84TWJyMlVMIiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTphY3RvcnMiLCJkZWxldGU6bW92aWVzIiwiZ2V0OmFjdG9ycyIsImdldDptb3ZpZXMiLCJwYXRjaDphY3RvcnMiLCJwYXRjaDptb3ZpZXMiLCJwb3N0OmFjdG9ycyIsInBvc3Q6bW92aWVzIl19.BuBqKDTLVFoMn-7RsqnKul1b7MK_-b0tNgUnTEXrSlr-EEovNEE_f4uHq-9_SAr7ESnWtxoO-7GwTdHPnlAPTz4xhauhzuZCCIqt1AhANfRp93I4fS0PQLUgzcgjA7tBRSm4YrpN5QHwOGjuLcIv7jD_E1oxArdYjwbORgb5HeGzpAijtvTINqa3V7PHZOuP7FbD4FbSw1DhBPGzX59Io7_pREj21HXT7TENVSDtHCAmSj53TwVhTDv1zTRUZhK2MOME4qzvRuJCJ_TSQZ4-kB2U9n7Fivt0inUzezBbgl26PRIohN6DCPyHXW_babW21k2AU-V2zWp3Dzu_CiOvbA'
-        self.casting_director = 'token_value_2'
+        self.executive_producer = os.environ['EXECUTIVE_PRODUCER']
+        self.casting_director = os.environ['CASTING_DIRECTOR']
+        self.casting_assistant = os.environ['CASTING_ASSISTANT']
         
         with self.app.app_context():
             self.db = SQLAlchemy()

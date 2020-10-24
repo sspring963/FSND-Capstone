@@ -6,8 +6,11 @@ import json
 
 
 database_name = "movie_agency"
-database_path = os.environ['DATABASE_URL']
-
+default_path = "postgres://postgres:435s606S@localhost:5432/movie_agency"
+database_path = os.getenv("DATABASE_URL")
+if not database_path:
+    database_path = os.getenv("DEFAULT_URL")
+    
 db = SQLAlchemy()
 
 '''

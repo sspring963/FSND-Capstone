@@ -43,7 +43,11 @@ Run migrations with manage.py like this or use flask db migrate.
 Before running the server, update and load the environment variables. Go to setup.sh and update user and password in DEFAULT_URL and TEST_URL. Do not edit other variables.
 
 	DEFAULT_URL='postgres://user:password@localhost:5432/movie_agency'
-	TEST_URL='postgres://user:password@localhost:5432/movie_agency_test'
+	TEST_URL='postgres://user:password@localhost:5432/movie_agency_test
+
+You can then load the variables:
+
+	$ source setup.sh
 
 To run the server, execute:
 
@@ -66,7 +70,8 @@ Run the unittests by executing:
 
 ### Getting Started
 -Base URL: This app can be run locally at http://127.0.0.1:5000/. It can be live tested at [https://fsnd-capstone-sspring963.herokuapp.com](https://fsnd-capstone-sspring963.herokuapp.com/).
--Authentication: This application requires authentication from AUTH0
+-Authentication: This application requires authentication from AUTH0. There are two differect roles for movie casting: Executive Producer and the Casting Assistant. The Executive Producer has access to all endpoints while the Casting Assistant can only GET actors and movies and cannot POST, PATCH, and DELETE actors and movies. 
+
 
 ### Error Handling
 
@@ -285,4 +290,5 @@ DELETE '/actors/<int:id>
 		   "delete":5,
 		   "success":true
 		}
+
 

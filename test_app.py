@@ -13,12 +13,11 @@ class MovieTestCase(unittest.TestCase):
         self.app = create_app()
         self.client = self.app.test_client
         self.database_name = "movie_agency_test"
-        self.database_path = "postgres://{}/{}".format(
-            'postgres:435s606S@localhost:5432', self.database_name)
+        self.database_path = os.getenv('TEST_URL')
         setup_db(self.app, self.database_path)
-        self.executive_producer = os.environ['EXECUTIVE_PRODUCER']
-        self.casting_director = os.environ['CASTING_DIRECTOR']
-        self.casting_assistant = os.environ['CASTING_ASSISTANT']
+        self.executive_producer = os.getenv('EXECUTIVE_PRODUCER')
+        #self.casting_director = os.environ['CASTING_DIRECTOR']
+        self.casting_assistant = os.getenv('CASTING_ASSISTANT')
         
         with self.app.app_context():
             self.db = SQLAlchemy()
@@ -246,6 +245,37 @@ class MovieTestCase(unittest.TestCase):
         self.assertEquals(data['success'], False)
         self.assertEqual(data['message'], "Resource Not Found")
         
+        
+    def test_401_post_actor_not_permitted_for_casting_assistant(self):
+        self.new_actor = {
+            'name': 'name',
+            'age': 32,
+            'gender': "female"
+            }
+        
+        res = self.client().post('/actors', json=self.new_actor, headers={'Authorization': 'Bearer ' + self.casting_assistant})
+        data = json.loads(res.data)
+        
+        self.assertEqual(res.status_code, 401)
+        self.assertEquals(data['success'], False)
+        self.assertEquals(data['description'], "Permission not found.")
+        
+    def test_401_post_movie_not_permitted_for_casting_assistant(self):
+        self.new_movie = {
+                "title": "new",
+                "release_date": "1993-01-08",
+                "actor_id": 13
+            }
+        
+        
+        res = self.client().post('/movies', json=self.new_movie, 
+                                 headers={'Authorization': 'Bearer ' + self.casting_assistant}
+                                 )
+        data = json.loads(res.data)
+        
+        self.assertEqual(res.status_code, 401)
+        self.assertEquals(data['success'], False)
+        self.assertEquals(data['description'], "Permission not found.")
         
 if __name__ == "__main__":
     unittest.main()       

@@ -70,7 +70,7 @@ Run the unittests by executing:
 
 ### Getting Started
 -Base URL: This app can be run locally at http://127.0.0.1:5000/. It can be live tested at [https://fsnd-capstone-sspring963.herokuapp.com](https://fsnd-capstone-sspring963.herokuapp.com/).
--Authentication: This application requires authentication from AUTH0. There are two differect roles for movie casting: Executive Producer and the Casting Assistant. The Executive Producer has access to all endpoints while the Casting Assistant can only GET actors and movies and cannot POST, PATCH, and DELETE actors and movies. 
+-Authentication: This application requires authentication from AUTH0. There are two differect roles for movie casting: Executive Producer and the Casting Assistant. The Executive Producer has access to all endpoints while the Casting Assistant can only GET actors and movies and cannot POST, PATCH, and DELETE actors and movies. The RBAC can be tested live using the postman collection. A Postman account is required. Simply import the postman collection and then run it.
 
 
 ### Error Handling

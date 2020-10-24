@@ -1,0 +1,917 @@
+{
+	"info": {
+		"_postman_id": "e44fd99d-b676-410c-bd83-ba1193b8ea31",
+		"name": "capstone test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Excutive Producer",
+			"item": [
+				{
+					"name": "/",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://fsnd-capstone-sspring963.herokuapp.com/",
+							"protocol": "https",
+							"host": [
+								"fsnd-capstone-sspring963",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d1e110e8-5cfb-4fcd-9454-f7da3c853ffe",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"value contains actors array\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.actors).to.be.an('array')\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImVjb21YNFNmVHAtdk95eFZuRlBnbCJ9.eyJpc3MiOiJodHRwczovL2Rldi1seXl6cDY2aC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDQzODY4NzgwMTUwMDA2MjUzNDUiLCJhdWQiOlsibW92aWUiLCJodHRwczovL2Rldi1seXl6cDY2aC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNTYyMjI4LCJleHAiOjE2MDM2NDg2MjgsImF6cCI6IlcxZWM4UkxMWEcxdlVhV3pNbWJzbHAyNE84TWJyMlVMIiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTphY3RvcnMiLCJkZWxldGU6bW92aWVzIiwiZ2V0OmFjdG9ycyIsImdldDptb3ZpZXMiLCJwYXRjaDphY3RvcnMiLCJwYXRjaDptb3ZpZXMiLCJwb3N0OmFjdG9ycyIsInBvc3Q6bW92aWVzIl19.ClpWtjSVKsSilRzha_RhnpN6UUeFQYXaI_v4Lk9_-Yu6z_lR7N0_8n2J5scMUi8GSPAqFxlGkwPOX4Bmxrc2secfOtWB4fXXuXhroQNQ20nxiOA2qVZSUaEP49FZGynEA2DO6DTPLkEAUCvhO6A6sWT0RhhPqejMrNamH3Z8nlXoP2Q6oVcmzuVCmBcy0QFe8gF-Q2vvqdplVlkEcGWlWQkAjrJ2DnsXN2e7s_o15OjXZsDhsvETWyh-XoJEZ5lR6xPT2BaE8XwqgXmHxVNKK7BYuRBkfOUDK4PL4O6Id0LsFA8Do26jssG683hPJbUkEETwE0sxlPOEjkmD2GW6iQ",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Executive_Producer_Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://fsnd-capstone-sspring963.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"fsnd-capstone-sspring963",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8373a7cf-6f99-4fda-9918-a8572d05770d",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"value contains movies array\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.movies).to.be.an('array')\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImVjb21YNFNmVHAtdk95eFZuRlBnbCJ9.eyJpc3MiOiJodHRwczovL2Rldi1seXl6cDY2aC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDQzODY4NzgwMTUwMDA2MjUzNDUiLCJhdWQiOlsibW92aWUiLCJodHRwczovL2Rldi1seXl6cDY2aC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNTYyMjI4LCJleHAiOjE2MDM2NDg2MjgsImF6cCI6IlcxZWM4UkxMWEcxdlVhV3pNbWJzbHAyNE84TWJyMlVMIiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTphY3RvcnMiLCJkZWxldGU6bW92aWVzIiwiZ2V0OmFjdG9ycyIsImdldDptb3ZpZXMiLCJwYXRjaDphY3RvcnMiLCJwYXRjaDptb3ZpZXMiLCJwb3N0OmFjdG9ycyIsInBvc3Q6bW92aWVzIl19.ClpWtjSVKsSilRzha_RhnpN6UUeFQYXaI_v4Lk9_-Yu6z_lR7N0_8n2J5scMUi8GSPAqFxlGkwPOX4Bmxrc2secfOtWB4fXXuXhroQNQ20nxiOA2qVZSUaEP49FZGynEA2DO6DTPLkEAUCvhO6A6sWT0RhhPqejMrNamH3Z8nlXoP2Q6oVcmzuVCmBcy0QFe8gF-Q2vvqdplVlkEcGWlWQkAjrJ2DnsXN2e7s_o15OjXZsDhsvETWyh-XoJEZ5lR6xPT2BaE8XwqgXmHxVNKK7BYuRBkfOUDK4PL4O6Id0LsFA8Do26jssG683hPJbUkEETwE0sxlPOEjkmD2GW6iQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://fsnd-capstone-sspring963.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"fsnd-capstone-sspring963",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dcad8370-d9db-4107-8f7b-28ebc093b64f",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImVjb21YNFNmVHAtdk95eFZuRlBnbCJ9.eyJpc3MiOiJodHRwczovL2Rldi1seXl6cDY2aC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDQzODY4NzgwMTUwMDA2MjUzNDUiLCJhdWQiOlsibW92aWUiLCJodHRwczovL2Rldi1seXl6cDY2aC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNTYyMjI4LCJleHAiOjE2MDM2NDg2MjgsImF6cCI6IlcxZWM4UkxMWEcxdlVhV3pNbWJzbHAyNE84TWJyMlVMIiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTphY3RvcnMiLCJkZWxldGU6bW92aWVzIiwiZ2V0OmFjdG9ycyIsImdldDptb3ZpZXMiLCJwYXRjaDphY3RvcnMiLCJwYXRjaDptb3ZpZXMiLCJwb3N0OmFjdG9ycyIsInBvc3Q6bW92aWVzIl19.ClpWtjSVKsSilRzha_RhnpN6UUeFQYXaI_v4Lk9_-Yu6z_lR7N0_8n2J5scMUi8GSPAqFxlGkwPOX4Bmxrc2secfOtWB4fXXuXhroQNQ20nxiOA2qVZSUaEP49FZGynEA2DO6DTPLkEAUCvhO6A6sWT0RhhPqejMrNamH3Z8nlXoP2Q6oVcmzuVCmBcy0QFe8gF-Q2vvqdplVlkEcGWlWQkAjrJ2DnsXN2e7s_o15OjXZsDhsvETWyh-XoJEZ5lR6xPT2BaE8XwqgXmHxVNKK7BYuRBkfOUDK4PL4O6Id0LsFA8Do26jssG683hPJbUkEETwE0sxlPOEjkmD2GW6iQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Brad Pitt\",\r\n    \"age\": 56,\r\n    \"gender\": \"male\"\r\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "https://fsnd-capstone-sspring963.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"fsnd-capstone-sspring963",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "37d255d8-6292-4011-9220-e5cdee8e36d8",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImVjb21YNFNmVHAtdk95eFZuRlBnbCJ9.eyJpc3MiOiJodHRwczovL2Rldi1seXl6cDY2aC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDQzODY4NzgwMTUwMDA2MjUzNDUiLCJhdWQiOlsibW92aWUiLCJodHRwczovL2Rldi1seXl6cDY2aC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNTYyMjI4LCJleHAiOjE2MDM2NDg2MjgsImF6cCI6IlcxZWM4UkxMWEcxdlVhV3pNbWJzbHAyNE84TWJyMlVMIiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTphY3RvcnMiLCJkZWxldGU6bW92aWVzIiwiZ2V0OmFjdG9ycyIsImdldDptb3ZpZXMiLCJwYXRjaDphY3RvcnMiLCJwYXRjaDptb3ZpZXMiLCJwb3N0OmFjdG9ycyIsInBvc3Q6bW92aWVzIl19.ClpWtjSVKsSilRzha_RhnpN6UUeFQYXaI_v4Lk9_-Yu6z_lR7N0_8n2J5scMUi8GSPAqFxlGkwPOX4Bmxrc2secfOtWB4fXXuXhroQNQ20nxiOA2qVZSUaEP49FZGynEA2DO6DTPLkEAUCvhO6A6sWT0RhhPqejMrNamH3Z8nlXoP2Q6oVcmzuVCmBcy0QFe8gF-Q2vvqdplVlkEcGWlWQkAjrJ2DnsXN2e7s_o15OjXZsDhsvETWyh-XoJEZ5lR6xPT2BaE8XwqgXmHxVNKK7BYuRBkfOUDK4PL4O6Id0LsFA8Do26jssG683hPJbUkEETwE0sxlPOEjkmD2GW6iQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Jurassic Park\",\r\n    \"release_date\": \"1993-01-08\",\r\n    \"actor_id\": 1\r\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "https://fsnd-capstone-sspring963.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"fsnd-capstone-sspring963",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "144fb57f-ba84-4ad6-b0f3-6e32b62e3cec",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImVjb21YNFNmVHAtdk95eFZuRlBnbCJ9.eyJpc3MiOiJodHRwczovL2Rldi1seXl6cDY2aC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDQzODY4NzgwMTUwMDA2MjUzNDUiLCJhdWQiOlsibW92aWUiLCJodHRwczovL2Rldi1seXl6cDY2aC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNTYyMjI4LCJleHAiOjE2MDM2NDg2MjgsImF6cCI6IlcxZWM4UkxMWEcxdlVhV3pNbWJzbHAyNE84TWJyMlVMIiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTphY3RvcnMiLCJkZWxldGU6bW92aWVzIiwiZ2V0OmFjdG9ycyIsImdldDptb3ZpZXMiLCJwYXRjaDphY3RvcnMiLCJwYXRjaDptb3ZpZXMiLCJwb3N0OmFjdG9ycyIsInBvc3Q6bW92aWVzIl19.ClpWtjSVKsSilRzha_RhnpN6UUeFQYXaI_v4Lk9_-Yu6z_lR7N0_8n2J5scMUi8GSPAqFxlGkwPOX4Bmxrc2secfOtWB4fXXuXhroQNQ20nxiOA2qVZSUaEP49FZGynEA2DO6DTPLkEAUCvhO6A6sWT0RhhPqejMrNamH3Z8nlXoP2Q6oVcmzuVCmBcy0QFe8gF-Q2vvqdplVlkEcGWlWQkAjrJ2DnsXN2e7s_o15OjXZsDhsvETWyh-XoJEZ5lR6xPT2BaE8XwqgXmHxVNKK7BYuRBkfOUDK4PL4O6Id0LsFA8Do26jssG683hPJbUkEETwE0sxlPOEjkmD2GW6iQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Troy\",\r\n    \"release_date\": \"2004-11-11\"\r\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "https://fsnd-capstone-sspring963.herokuapp.com/movies/1",
+							"protocol": "https",
+							"host": [
+								"fsnd-capstone-sspring963",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c350082e-177a-4583-bce3-60bcf6d5f496",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImVjb21YNFNmVHAtdk95eFZuRlBnbCJ9.eyJpc3MiOiJodHRwczovL2Rldi1seXl6cDY2aC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDQzODY4NzgwMTUwMDA2MjUzNDUiLCJhdWQiOlsibW92aWUiLCJodHRwczovL2Rldi1seXl6cDY2aC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNTYyMjI4LCJleHAiOjE2MDM2NDg2MjgsImF6cCI6IlcxZWM4UkxMWEcxdlVhV3pNbWJzbHAyNE84TWJyMlVMIiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTphY3RvcnMiLCJkZWxldGU6bW92aWVzIiwiZ2V0OmFjdG9ycyIsImdldDptb3ZpZXMiLCJwYXRjaDphY3RvcnMiLCJwYXRjaDptb3ZpZXMiLCJwb3N0OmFjdG9ycyIsInBvc3Q6bW92aWVzIl19.ClpWtjSVKsSilRzha_RhnpN6UUeFQYXaI_v4Lk9_-Yu6z_lR7N0_8n2J5scMUi8GSPAqFxlGkwPOX4Bmxrc2secfOtWB4fXXuXhroQNQ20nxiOA2qVZSUaEP49FZGynEA2DO6DTPLkEAUCvhO6A6sWT0RhhPqejMrNamH3Z8nlXoP2Q6oVcmzuVCmBcy0QFe8gF-Q2vvqdplVlkEcGWlWQkAjrJ2DnsXN2e7s_o15OjXZsDhsvETWyh-XoJEZ5lR6xPT2BaE8XwqgXmHxVNKK7BYuRBkfOUDK4PL4O6Id0LsFA8Do26jssG683hPJbUkEETwE0sxlPOEjkmD2GW6iQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Orlando Bloom\"\r\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "https://fsnd-capstone-sspring963.herokuapp.com/actors/1",
+							"protocol": "https",
+							"host": [
+								"fsnd-capstone-sspring963",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9db3f7ef-ebf5-4f16-bf2e-5e0fe0059c2b",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImVjb21YNFNmVHAtdk95eFZuRlBnbCJ9.eyJpc3MiOiJodHRwczovL2Rldi1seXl6cDY2aC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDQzODY4NzgwMTUwMDA2MjUzNDUiLCJhdWQiOlsibW92aWUiLCJodHRwczovL2Rldi1seXl6cDY2aC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNTYyMjI4LCJleHAiOjE2MDM2NDg2MjgsImF6cCI6IlcxZWM4UkxMWEcxdlVhV3pNbWJzbHAyNE84TWJyMlVMIiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTphY3RvcnMiLCJkZWxldGU6bW92aWVzIiwiZ2V0OmFjdG9ycyIsImdldDptb3ZpZXMiLCJwYXRjaDphY3RvcnMiLCJwYXRjaDptb3ZpZXMiLCJwb3N0OmFjdG9ycyIsInBvc3Q6bW92aWVzIl19.ClpWtjSVKsSilRzha_RhnpN6UUeFQYXaI_v4Lk9_-Yu6z_lR7N0_8n2J5scMUi8GSPAqFxlGkwPOX4Bmxrc2secfOtWB4fXXuXhroQNQ20nxiOA2qVZSUaEP49FZGynEA2DO6DTPLkEAUCvhO6A6sWT0RhhPqejMrNamH3Z8nlXoP2Q6oVcmzuVCmBcy0QFe8gF-Q2vvqdplVlkEcGWlWQkAjrJ2DnsXN2e7s_o15OjXZsDhsvETWyh-XoJEZ5lR6xPT2BaE8XwqgXmHxVNKK7BYuRBkfOUDK4PL4O6Id0LsFA8Do26jssG683hPJbUkEETwE0sxlPOEjkmD2GW6iQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://fsnd-capstone-sspring963.herokuapp.com/movies/4",
+							"protocol": "https",
+							"host": [
+								"fsnd-capstone-sspring963",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ece66a1e-96dd-4fcd-a06e-caff8b9a7c73",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImVjb21YNFNmVHAtdk95eFZuRlBnbCJ9.eyJpc3MiOiJodHRwczovL2Rldi1seXl6cDY2aC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDQzODY4NzgwMTUwMDA2MjUzNDUiLCJhdWQiOlsibW92aWUiLCJodHRwczovL2Rldi1seXl6cDY2aC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNTYyMjI4LCJleHAiOjE2MDM2NDg2MjgsImF6cCI6IlcxZWM4UkxMWEcxdlVhV3pNbWJzbHAyNE84TWJyMlVMIiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTphY3RvcnMiLCJkZWxldGU6bW92aWVzIiwiZ2V0OmFjdG9ycyIsImdldDptb3ZpZXMiLCJwYXRjaDphY3RvcnMiLCJwYXRjaDptb3ZpZXMiLCJwb3N0OmFjdG9ycyIsInBvc3Q6bW92aWVzIl19.ClpWtjSVKsSilRzha_RhnpN6UUeFQYXaI_v4Lk9_-Yu6z_lR7N0_8n2J5scMUi8GSPAqFxlGkwPOX4Bmxrc2secfOtWB4fXXuXhroQNQ20nxiOA2qVZSUaEP49FZGynEA2DO6DTPLkEAUCvhO6A6sWT0RhhPqejMrNamH3Z8nlXoP2Q6oVcmzuVCmBcy0QFe8gF-Q2vvqdplVlkEcGWlWQkAjrJ2DnsXN2e7s_o15OjXZsDhsvETWyh-XoJEZ5lR6xPT2BaE8XwqgXmHxVNKK7BYuRBkfOUDK4PL4O6Id0LsFA8Do26jssG683hPJbUkEETwE0sxlPOEjkmD2GW6iQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://fsnd-capstone-sspring963.herokuapp.com/actors/7",
+							"protocol": "https",
+							"host": [
+								"fsnd-capstone-sspring963",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Casting Assistant",
+			"item": [
+				{
+					"name": "/",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://fsnd-capstone-sspring963.herokuapp.com/",
+							"protocol": "https",
+							"host": [
+								"fsnd-capstone-sspring963",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "050b401e-6003-4d58-9c8e-05957b657e44",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImVjb21YNFNmVHAtdk95eFZuRlBnbCJ9.eyJpc3MiOiJodHRwczovL2Rldi1seXl6cDY2aC51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWY3OGY4NGU0NDE5YWEwMDcxODBjYTA0IiwiYXVkIjoibW92aWUiLCJpYXQiOjE2MDM1NjI1NDgsImV4cCI6MTYwMzY0ODk0OCwiYXpwIjoiVzFlYzhSTExYRzF2VWFXek1tYnNscDI0TzhNYnIyVUwiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIl19.WJAuiPAjpu7FLdmDronI8aZFRfXcJyVdqB9O67rvW5xJicUiSaVaAZuzASn38qy3SzfX06wftGdwKCPyF8Qg4U8i0O4UxiE4wwqfTIF7OGxkPmFosnfYF8Yplrj_HjNIAVD93BXBte7uGqxT9dhvIce0GsXU8q4uyTTcNKJD5Z3oJi8z1KojMjh9Dw6kk18rQyzKx0AW3IXm6wH7uriO-0whLhopZTWM5hn213TxQ1R_EV61hNSZ3vRLtrUImUqmFOM5pxw9F0Akf_VuuUkAeb6ifgyne2w9KWCLitwMzqT6fOzHOYNey7C0pKabQg1UDaux-LzovDz8pfM29nHJdA",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{Casting_Assistant}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://fsnd-capstone-sspring963.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"fsnd-capstone-sspring963",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "97081091-f912-405a-bb6d-a0ff110a4785",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImVjb21YNFNmVHAtdk95eFZuRlBnbCJ9.eyJpc3MiOiJodHRwczovL2Rldi1seXl6cDY2aC51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWY3OGY4NGU0NDE5YWEwMDcxODBjYTA0IiwiYXVkIjoibW92aWUiLCJpYXQiOjE2MDM1NjI1NDgsImV4cCI6MTYwMzY0ODk0OCwiYXpwIjoiVzFlYzhSTExYRzF2VWFXek1tYnNscDI0TzhNYnIyVUwiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIl19.WJAuiPAjpu7FLdmDronI8aZFRfXcJyVdqB9O67rvW5xJicUiSaVaAZuzASn38qy3SzfX06wftGdwKCPyF8Qg4U8i0O4UxiE4wwqfTIF7OGxkPmFosnfYF8Yplrj_HjNIAVD93BXBte7uGqxT9dhvIce0GsXU8q4uyTTcNKJD5Z3oJi8z1KojMjh9Dw6kk18rQyzKx0AW3IXm6wH7uriO-0whLhopZTWM5hn213TxQ1R_EV61hNSZ3vRLtrUImUqmFOM5pxw9F0Akf_VuuUkAeb6ifgyne2w9KWCLitwMzqT6fOzHOYNey7C0pKabQg1UDaux-LzovDz8pfM29nHJdA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://fsnd-capstone-sspring963.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"fsnd-capstone-sspring963",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f10a5e16-508a-4264-9e2e-f1f733af4b31",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImVjb21YNFNmVHAtdk95eFZuRlBnbCJ9.eyJpc3MiOiJodHRwczovL2Rldi1seXl6cDY2aC51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWY3OGY4NGU0NDE5YWEwMDcxODBjYTA0IiwiYXVkIjoibW92aWUiLCJpYXQiOjE2MDM1NjI1NDgsImV4cCI6MTYwMzY0ODk0OCwiYXpwIjoiVzFlYzhSTExYRzF2VWFXek1tYnNscDI0TzhNYnIyVUwiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIl19.WJAuiPAjpu7FLdmDronI8aZFRfXcJyVdqB9O67rvW5xJicUiSaVaAZuzASn38qy3SzfX06wftGdwKCPyF8Qg4U8i0O4UxiE4wwqfTIF7OGxkPmFosnfYF8Yplrj_HjNIAVD93BXBte7uGqxT9dhvIce0GsXU8q4uyTTcNKJD5Z3oJi8z1KojMjh9Dw6kk18rQyzKx0AW3IXm6wH7uriO-0whLhopZTWM5hn213TxQ1R_EV61hNSZ3vRLtrUImUqmFOM5pxw9F0Akf_VuuUkAeb6ifgyne2w9KWCLitwMzqT6fOzHOYNey7C0pKabQg1UDaux-LzovDz8pfM29nHJdA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Brad Pitt\",\r\n    \"age\": 56,\r\n    \"gender\": \"male\"\r\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "https://fsnd-capstone-sspring963.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"fsnd-capstone-sspring963",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c03155eb-cfa5-46e3-8682-7591f5fa33d8",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImVjb21YNFNmVHAtdk95eFZuRlBnbCJ9.eyJpc3MiOiJodHRwczovL2Rldi1seXl6cDY2aC51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWY3OGY4NGU0NDE5YWEwMDcxODBjYTA0IiwiYXVkIjoibW92aWUiLCJpYXQiOjE2MDM1NjI1NDgsImV4cCI6MTYwMzY0ODk0OCwiYXpwIjoiVzFlYzhSTExYRzF2VWFXek1tYnNscDI0TzhNYnIyVUwiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIl19.WJAuiPAjpu7FLdmDronI8aZFRfXcJyVdqB9O67rvW5xJicUiSaVaAZuzASn38qy3SzfX06wftGdwKCPyF8Qg4U8i0O4UxiE4wwqfTIF7OGxkPmFosnfYF8Yplrj_HjNIAVD93BXBte7uGqxT9dhvIce0GsXU8q4uyTTcNKJD5Z3oJi8z1KojMjh9Dw6kk18rQyzKx0AW3IXm6wH7uriO-0whLhopZTWM5hn213TxQ1R_EV61hNSZ3vRLtrUImUqmFOM5pxw9F0Akf_VuuUkAeb6ifgyne2w9KWCLitwMzqT6fOzHOYNey7C0pKabQg1UDaux-LzovDz8pfM29nHJdA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Jurassic Park\",\r\n    \"release_date\": \"1993-01-08\",\r\n    \"actor_id\": 1\r\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "https://fsnd-capstone-sspring963.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"fsnd-capstone-sspring963",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2f34d029-16e6-4ca1-88bd-254d612388f6",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImVjb21YNFNmVHAtdk95eFZuRlBnbCJ9.eyJpc3MiOiJodHRwczovL2Rldi1seXl6cDY2aC51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWY3OGY4NGU0NDE5YWEwMDcxODBjYTA0IiwiYXVkIjoibW92aWUiLCJpYXQiOjE2MDM1NjI1NDgsImV4cCI6MTYwMzY0ODk0OCwiYXpwIjoiVzFlYzhSTExYRzF2VWFXek1tYnNscDI0TzhNYnIyVUwiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIl19.WJAuiPAjpu7FLdmDronI8aZFRfXcJyVdqB9O67rvW5xJicUiSaVaAZuzASn38qy3SzfX06wftGdwKCPyF8Qg4U8i0O4UxiE4wwqfTIF7OGxkPmFosnfYF8Yplrj_HjNIAVD93BXBte7uGqxT9dhvIce0GsXU8q4uyTTcNKJD5Z3oJi8z1KojMjh9Dw6kk18rQyzKx0AW3IXm6wH7uriO-0whLhopZTWM5hn213TxQ1R_EV61hNSZ3vRLtrUImUqmFOM5pxw9F0Akf_VuuUkAeb6ifgyne2w9KWCLitwMzqT6fOzHOYNey7C0pKabQg1UDaux-LzovDz8pfM29nHJdA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Troy\",\r\n    \"release_date\": \"2004-11-11\"\r\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "https://fsnd-capstone-sspring963.herokuapp.com/movies/1",
+							"protocol": "https",
+							"host": [
+								"fsnd-capstone-sspring963",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dfce2379-4c4f-4d71-af36-2522a8bf5e26",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImVjb21YNFNmVHAtdk95eFZuRlBnbCJ9.eyJpc3MiOiJodHRwczovL2Rldi1seXl6cDY2aC51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWY3OGY4NGU0NDE5YWEwMDcxODBjYTA0IiwiYXVkIjoibW92aWUiLCJpYXQiOjE2MDM1NjI1NDgsImV4cCI6MTYwMzY0ODk0OCwiYXpwIjoiVzFlYzhSTExYRzF2VWFXek1tYnNscDI0TzhNYnIyVUwiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIl19.WJAuiPAjpu7FLdmDronI8aZFRfXcJyVdqB9O67rvW5xJicUiSaVaAZuzASn38qy3SzfX06wftGdwKCPyF8Qg4U8i0O4UxiE4wwqfTIF7OGxkPmFosnfYF8Yplrj_HjNIAVD93BXBte7uGqxT9dhvIce0GsXU8q4uyTTcNKJD5Z3oJi8z1KojMjh9Dw6kk18rQyzKx0AW3IXm6wH7uriO-0whLhopZTWM5hn213TxQ1R_EV61hNSZ3vRLtrUImUqmFOM5pxw9F0Akf_VuuUkAeb6ifgyne2w9KWCLitwMzqT6fOzHOYNey7C0pKabQg1UDaux-LzovDz8pfM29nHJdA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Orlando Bloom\"\r\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "https://fsnd-capstone-sspring963.herokuapp.com/actors/1",
+							"protocol": "https",
+							"host": [
+								"fsnd-capstone-sspring963",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "09d6d375-225c-4dfc-8bbd-7673b43fcfb6",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImVjb21YNFNmVHAtdk95eFZuRlBnbCJ9.eyJpc3MiOiJodHRwczovL2Rldi1seXl6cDY2aC51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWY3OGY4NGU0NDE5YWEwMDcxODBjYTA0IiwiYXVkIjoibW92aWUiLCJpYXQiOjE2MDM1NjI1NDgsImV4cCI6MTYwMzY0ODk0OCwiYXpwIjoiVzFlYzhSTExYRzF2VWFXek1tYnNscDI0TzhNYnIyVUwiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIl19.WJAuiPAjpu7FLdmDronI8aZFRfXcJyVdqB9O67rvW5xJicUiSaVaAZuzASn38qy3SzfX06wftGdwKCPyF8Qg4U8i0O4UxiE4wwqfTIF7OGxkPmFosnfYF8Yplrj_HjNIAVD93BXBte7uGqxT9dhvIce0GsXU8q4uyTTcNKJD5Z3oJi8z1KojMjh9Dw6kk18rQyzKx0AW3IXm6wH7uriO-0whLhopZTWM5hn213TxQ1R_EV61hNSZ3vRLtrUImUqmFOM5pxw9F0Akf_VuuUkAeb6ifgyne2w9KWCLitwMzqT6fOzHOYNey7C0pKabQg1UDaux-LzovDz8pfM29nHJdA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://fsnd-capstone-sspring963.herokuapp.com/movies/2",
+							"protocol": "https",
+							"host": [
+								"fsnd-capstone-sspring963",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cbf544a0-10f7-4dad-a84f-49b640f9ffc0",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImVjb21YNFNmVHAtdk95eFZuRlBnbCJ9.eyJpc3MiOiJodHRwczovL2Rldi1seXl6cDY2aC51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWY3OGY4NGU0NDE5YWEwMDcxODBjYTA0IiwiYXVkIjoibW92aWUiLCJpYXQiOjE2MDM1NjI1NDgsImV4cCI6MTYwMzY0ODk0OCwiYXpwIjoiVzFlYzhSTExYRzF2VWFXek1tYnNscDI0TzhNYnIyVUwiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIl19.WJAuiPAjpu7FLdmDronI8aZFRfXcJyVdqB9O67rvW5xJicUiSaVaAZuzASn38qy3SzfX06wftGdwKCPyF8Qg4U8i0O4UxiE4wwqfTIF7OGxkPmFosnfYF8Yplrj_HjNIAVD93BXBte7uGqxT9dhvIce0GsXU8q4uyTTcNKJD5Z3oJi8z1KojMjh9Dw6kk18rQyzKx0AW3IXm6wH7uriO-0whLhopZTWM5hn213TxQ1R_EV61hNSZ3vRLtrUImUqmFOM5pxw9F0Akf_VuuUkAeb6ifgyne2w9KWCLitwMzqT6fOzHOYNey7C0pKabQg1UDaux-LzovDz8pfM29nHJdA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://fsnd-capstone-sspring963.herokuapp.com/actors/2",
+							"protocol": "https",
+							"host": [
+								"fsnd-capstone-sspring963",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

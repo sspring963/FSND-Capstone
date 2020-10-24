@@ -33,13 +33,6 @@ Create local database:
 	$ createdb movie_agency
  
 #### Migrations
-Run migrations with manage.py like this or use flask db migrate.
-
-	$ python manage.py db init
-	$ python manage.py db upgrade 
-	$ python manage.py db migrate
-
-#### Running the Server
 Before running the server, update and load the environment variables. Go to setup.sh and update user and password in DEFAULT_URL and TEST_URL. Do not edit other variables.
 
 	DEFAULT_URL='postgres://user:password@localhost:5432/movie_agency'
@@ -49,6 +42,13 @@ You can then load the variables:
 
 	$ source setup.sh
 
+Run migrations with manage.py like this or use flask db migrate.
+
+	$ python manage.py db init
+	$ python manage.py db upgrade 
+	$ python manage.py db migrate
+
+#### Running the Server
 To run the server, execute:
 
 	$ set FLASK_APP=app.py

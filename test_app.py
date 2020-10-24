@@ -30,7 +30,10 @@ class MovieTestCase(unittest.TestCase):
         """Executed after reach test"""
         pass
     
-    def test_get_actors(self):
+    def test_a_get_actors(self):
+        update_actor = Actor('Tom Hardy', 44, 'male')
+        update_actor.insert()
+        
         res = self.client().get('/actors', headers={'Authorization': 'Bearer ' + self.executive_producer})
         data = json.loads(res.data)
         
@@ -47,7 +50,10 @@ class MovieTestCase(unittest.TestCase):
         self.assertEquals(data['success'], False)
         self.assertEquals(data['description'], "Authorization header is expected.")
         
-    def test_get_movies(self):
+    def test_b_get_movies(self):
+        movie = Movie("title", "1999-9-9", 1)
+        movie.insert()
+        
         res = self.client().get('/movies', headers={'Authorization': 'Bearer ' + self.executive_producer})
         data = json.loads(res.data)
         
@@ -98,7 +104,7 @@ class MovieTestCase(unittest.TestCase):
         self.new_movie = {
                 "title": "new",
                 "release_date": "1993-01-08",
-                "actor_id": 13
+                "actor_id": 1
             }
         
         
@@ -164,7 +170,7 @@ class MovieTestCase(unittest.TestCase):
         
     def test_update_movie(self):
         #insert movie to update
-        update_movie = Movie('update_movie', "1998-9-9", 13)
+        update_movie = Movie('update_movie', "1998-9-9", 1)
         update_movie.insert()
         id = update_movie.id
         
@@ -221,7 +227,7 @@ class MovieTestCase(unittest.TestCase):
         self.assertEqual(data['message'], "Resource Not Found")
         
     def test_delete_movie(self):
-        delete_movie = Movie("title", "1999-9-9", 10)
+        delete_movie = Movie("title", "1999-9-9", 1)
         delete_movie.insert()
         id = delete_movie.id
         

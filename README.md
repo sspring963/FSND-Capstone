@@ -1,7 +1,7 @@
-# Capstone Project
+# Capstone Project - Movie Casting Agency
 
-## Movie Casting Agency
-This is my final capstone project for Udacity's Full Stack Developer Nano Degree. Its simulates the backend application for a casting agency that creates movies and assigns actors to those movies.
+## Motivation
+This is my final capstone project for Udacity's Full Stack Developer Nano Degree. Its simulates the backend application for a casting agency that creates movies and assigns actors to those movies. It is Flask application that accepts JSON data and uses Auth0 for authentication.
 
 ## Getting Started 
 
@@ -13,10 +13,13 @@ This application was built and tested using python 3.7.4 though it can work with
 #### Virtual Environment
 It is recommended to operate python projects in a virtual environments to keep their dependencies independent and seperate. Instructions to set up a virtual environment can be found in the [python docs](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/).
 
+	$ python3 -m venv env
+	$source env/bin/activate
+
 #### PIP Dependencies 
 After the virtual environment has been created and running, install dependencies by running:
 		
-	$ pip install -r requirements.txt
+	$ pip3 install -r requirements.txt
 
 #### Key Dependencies
 - [Flask](https://flask.palletsprojects.com/en/1.1.x/) is a lightweight backend microservices framework. Flask is required to handle requests and responses.
@@ -44,14 +47,19 @@ You can then load the variables:
 
 Run migrations with manage.py like this or use flask db migrate.
 
-	$ python manage.py db init
-	$ python manage.py db upgrade 
-	$ python manage.py db migrate
+	$ python3 manage.py db init
+	$ python3 manage.py db upgrade 
+	$ python3 manage.py db migrate
 
 #### Running the Server
-To run the server, execute:
+To run the server on windows, execute:
 
 	$ set FLASK_APP=app.py
+	$ flask run --reload
+
+To run the server on linux, execute:
+
+	$ export FLASK_APP=app.py
 	$ flask run --reload
 
 This will reload the server everytime a change is saved to the application.
@@ -69,8 +77,22 @@ Run the unittests by executing:
 ## API Reference
 
 ### Getting Started
--Base URL: This app can be run locally at http://127.0.0.1:5000/. It can be live tested at [https://fsnd-capstone-sspring963.herokuapp.com](https://fsnd-capstone-sspring963.herokuapp.com/).
--Authentication: This application requires authentication from AUTH0. There are two differect roles for movie casting: Executive Producer and the Casting Assistant. The Executive Producer has access to all endpoints while the Casting Assistant can only GET actors and movies and cannot POST, PATCH, and DELETE actors and movies. The RBAC can be tested live using the postman collection. A Postman account is required. Simply import the postman collection and then run it.
+- Base URL: This app can be run locally at http://127.0.0.1:5000/. It can be live tested at [https://fsnd-capstone-sspring963.herokuapp.com](https://fsnd-capstone-sspring963.herokuapp.com/).
+- Authentication: This application requires authentication from AUTH0. 
+
+#### RBAC
+There are two differect roles for movie casting: Executive Producer and the Casting Assistant. 
+
+- Executive Producer
+	- Can get actors and movies
+	- Can post actors and movies
+	- Can update actors and movies
+	- Can delete actors and movies
+- Casting Assistant
+	- Can get actors and movies
+	- Is not allowed to post, update, or delete actors and movies
+
+The RBAC can be tested live using the postman collection. A Postman account is required. Simply import the postman collection and then run it.
 
 
 ### Error Handling

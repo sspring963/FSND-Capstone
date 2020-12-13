@@ -14,7 +14,7 @@ This application was built and tested using python 3.7.4 though it can work with
 It is recommended to operate python projects in a virtual environments to keep their dependencies independent and seperate. Instructions to set up a virtual environment can be found in the [python docs](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/).
 
 	$ python3 -m venv env
-	$source env/bin/activate
+	$ source env/bin/activate
 
 #### PIP Dependencies 
 After the virtual environment has been created and running, install dependencies by running:

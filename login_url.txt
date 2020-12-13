@@ -1,0 +1,7 @@
+
+
+GET https://dev-lyyzp66h.us.auth0.com/authorize?
+  audience=movie&
+  response_type=token&
+  client_id=W1ec8RLLXG1vUaWzMmbslp24O8Mbr2UL&
+  redirect_uri=http://localhost:8100/tabs/user-page

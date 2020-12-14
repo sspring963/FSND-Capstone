@@ -1,5 +1,5 @@
 import os
-from flask import Flask, request, abort, jsonify
+from flask import Flask, request, abort, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from flask_migrate import Migrate
@@ -20,9 +20,7 @@ def create_app(test_config=None):
 
     @app.route('/')
     def home():
-        return jsonify({
-            'success': True
-        })
+        return render_template('pages/home.html')
 
     @app.route('/movies', methods=['GET'])
     @requires_auth('get:movies')
